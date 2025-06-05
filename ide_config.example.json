@@ -1,0 +1,14 @@
+{
+  "context_servers": {
+    "my-mcp-server": {
+      "command": {
+        "path": "python",
+        "args": [
+          "/path/to/Void-MCP-Server/start.py"
+        ],
+        "env": {}
+      },
+      "settings": {}
+    }
+  }
+}
