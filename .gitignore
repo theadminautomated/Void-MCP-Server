@@ -19,3 +19,4 @@ checkpoints/
 # Coverage
 coverage/
 
+tsconfig.tsbuildinfo
