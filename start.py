@@ -13,7 +13,9 @@ def ensure_node_deps() -> None:
 
 def ensure_python_deps() -> None:
     """Install Python dependencies from requirements.txt."""
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
+    subprocess.check_call(
+        [sys.executable, "-m", "pip", "install", "-r", "requirements.txt"]
+    )
 
 
 def ensure_build() -> None:
@@ -27,7 +29,16 @@ def start_servers(model: str, node_port: int, model_port: int) -> None:
     env = os.environ.copy()
     env.setdefault("PORT", str(node_port))
     node_proc = subprocess.Popen(["node", "dist/index.js"], env=env)
-    model_proc = subprocess.Popen([sys.executable, "run_local.py", "--model", model, "--port", str(model_port)])
+    model_proc = subprocess.Popen(
+        [
+            sys.executable,
+            "run_local.py",
+            "--model",
+            model,
+            "--port",
+            str(model_port),
+        ]
+    )
 
     print(f"MCP Server running on http://localhost:{node_port}")
     print(f"Local model server running on http://localhost:{model_port}")
@@ -43,7 +54,9 @@ def start_servers(model: str, node_port: int, model_port: int) -> None:
 
 
 def main(argv: list[str] | None = None) -> None:
-    parser = argparse.ArgumentParser(description="One-click launcher for MCP server and local model")
+    parser = argparse.ArgumentParser(
+        description="One-click launcher for MCP server and local model"
+    )
     parser.add_argument("--model", default="sshleifer/tiny-gpt2")
     parser.add_argument("--port", type=int, default=3000)
     parser.add_argument("--model-port", type=int, default=8000)
