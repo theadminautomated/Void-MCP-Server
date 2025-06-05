@@ -1,0 +1,21 @@
+# Node artifacts
+node_modules/
+dist/
+logs/
+.env
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+venv/
+models/
+checkpoints/
+
+# IDE
+.idea/
+.vscode/
+
+# Coverage
+coverage/
+
