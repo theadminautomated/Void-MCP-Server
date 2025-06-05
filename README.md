@@ -17,7 +17,12 @@ This project provides a Model Context Protocol (MCP) server for managing LLM con
 To launch both the MCP server and a local model server in one step, run:
 
 ```bash
-./start.sh
+python start.py
 ```
+
+The `start.py` script is cross-platform and installs any missing Node and
+Python dependencies, builds the TypeScript server if necessary, and then starts
+the MCP server alongside the local model server. On Unix-like systems you can
+also use `./start.sh`.
 
 The script installs missing Node dependencies, builds the server if needed, and then starts the MCP service alongside the local model server. Connection details are printed to the terminal for easy integration with IDEs and tools.
